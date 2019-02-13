@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build & debug file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++14",
+                "-g",
+                "-o",
+                "${fileBasenameNoExtension}.out",
+                "*.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build & run file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++14",
+                "-o",
+                "${fileBasenameNoExtension}.out",
+                "*.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Compile",
+            "type": "shell",
+            "command": "${fileDirname}/./build.sh",
+            "args": [
+                "compile",
+                "${fileDirname}",
+                "${fileBasenameNoExtension}.out"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Compile for debug",
+            "type": "shell",
+            "command": "${fileDirname}/./build.sh",
+            "args": [
+                "debug",
+                "${fileDirname}",
+                "${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

@@ -13,4 +13,5 @@ public:
     Cell(const std::vector<int>& directions);
     bool isTaken();
     char getValue();
+    void setValue(char value);
 };

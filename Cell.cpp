@@ -9,3 +9,7 @@ bool Cell::isTaken() {
 char Cell::getValue() {
     return value;
 }
+
+void Cell::setValue(char value) {
+    this->value = value;
+}
