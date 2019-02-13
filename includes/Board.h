@@ -1,12 +1,16 @@
+#pragma once
+
 #include <string>
+#include <array>
+#include "Cell.h"
 
 class Board
 {
 private:
     static const int boardSize = 9;
-    char state [boardSize] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    std::array<Cell, boardSize> state;
     std::string printCell(int index);
 public:
+  Board();
   void printBoard();
-  bool isCellFree(int cellNumber);
 };

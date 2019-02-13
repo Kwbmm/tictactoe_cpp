@@ -1,5 +1,21 @@
 #include <iostream>
+#include <vector>
 #include "includes/Board.h"
+#include "includes/Cell.h"
+
+Board::Board(void) {
+    state = {
+        Cell(std::vector<int> {}),
+        Cell(std::vector<int> {0, 2}),
+        Cell(std::vector<int> {}),
+        Cell(std::vector<int> {0, 6}),
+        Cell(std::vector<int> {0, 1, 2, 3, 5, 6, 7, 8}),
+        Cell(std::vector<int> {2, 8}),
+        Cell(std::vector<int> {}),
+        Cell(std::vector<int> {6, 8}),
+        Cell(std::vector<int> {}),
+    };
+}
 
 void Board::printBoard() {
     std::cout << "-------+-------+-------" << std::endl;
@@ -17,22 +33,18 @@ void Board::printBoard() {
     }
 }
 
-bool Board::isCellFree(int cellNumber) {
-    return state[cellNumber] != '0' && state[cellNumber] != 'x';
-}
-
 std::string Board::printCell(int index) {
     if (index == 0 || index == 3 || index == 6) {
         std::string cell = "   ";
-        return cell.append(1, state[index]).append("   |");
+        return cell.append(1, state[index].getValue()).append("   |");
     }
     if (index == 1 || index == 4 || index == 7) {
         std::string cell = "   ";
-        return cell.append(1, state[index]).append("   ");
+        return cell.append(1, state[index].getValue()).append("   ");
     }
     if (index == 2 || index == 5 || index == 8) {
         std::string cell = "|   ";
-        return  cell.append(1, state[index]).append("   ");
+        return  cell.append(1, state[index].getValue()).append("   ");
     }
     return "";
 }
