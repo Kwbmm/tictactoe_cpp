@@ -20,11 +20,18 @@ int main(int argc, char const *argv[])
         cout << "Player " << currentPlayer << ", make your move.. Enter the cell number where you wanna be" << endl;
         cin >> choice;
         if(b.setCellValue(choice-1, currentPlayer)) {
-            //Has the player won?
+            if(b.hasWinner(choice-1, currentPlayer)) {
+                b.printBoard();
+                cout << "Player " << currentPlayer << " wins!" << endl;
+                isFinished = true;
+            }
             char tmp = currentPlayer;
             currentPlayer = nextPlayer;
             nextPlayer = tmp;
+        } else {
+            cout << "Wrong choice! Retry.." << endl;
         }
+        
     }
     
     

@@ -15,4 +15,5 @@ public:
   Board();
   void printBoard();
   bool setCellValue(int index, char value);
+  bool hasWinner(int index, char player);
 };
