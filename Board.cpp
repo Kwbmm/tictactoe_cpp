@@ -188,4 +188,15 @@ bool Board::hasWinner(int index, char player) {
         default:
             return false;
     }
+
+}
+
+bool Board::hasEmptyCells() {
+    for(Cell c : state)
+    {
+        if (!c.isTaken()) {
+            return true;
+        }
+    }
+    return false;    
 }

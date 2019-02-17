@@ -25,6 +25,11 @@ int main(int argc, char const *argv[])
                 cout << "Player " << currentPlayer << " wins!" << endl;
                 isFinished = true;
             }
+            if (!b.hasEmptyCells()) {
+                cout << "This is a draw, match is over!" << endl << "Bye!" << endl;
+                return 0;
+            }
+            
             char tmp = currentPlayer;
             currentPlayer = nextPlayer;
             nextPlayer = tmp;
